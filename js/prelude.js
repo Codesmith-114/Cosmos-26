@@ -5,6 +5,6 @@ enter.addEventListener("click", () => {
     glitch.classList.add("active");
 
     setTimeout(() => {
-        window.location.href = "index.html";
+        window.location.href = "event.html";
     }, 800);
 });
