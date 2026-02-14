@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Hawkins Lab Trials</title>
+
+  <!-- Bebas Neue -->
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/hawkins.css">
+</head>
+<body>
+
+  <!-- ================= BACKGROUND VIDEO ================= -->
+  <video class="bg-video" autoplay muted loop playsinline>
+    <source src="assets/videos/lab-bg.mp4" type="video/mp4">
+  </video>
+  <div class="bg-overlay"></div>
+
+  <!-- ================= LOGOS ================= -->
+  <div class="branding left">
+  <img src="assets/logos/club-logo1.jpg" alt="Club Logo">
+</div>
+
+<div class="branding right">
+  <img src="event-logo.png" alt="Event Logo">
+</div>
+
+  <!-- ================= MAIN CONTENT ================= -->
+  <div class="main-wrapper">
+
+    <!-- Title -->
+    <h1 class="page-title">HAWKINS LAB TRIALS</h1>
+    <div class="page-subtitle">PRECISION. LOGIC. CONTROL.</div>
+
+    <!-- Info -->
+    <div class="info-text">CLICK A PANEL TO KNOW MORE</div>
+
+    <!-- ================= PANELS ================= -->
+    <div class="panel-grid">
+
+      <!-- Row 1 -->
+      <div class="panel-row">
+        <div class="panel" data-panel="debug">DEBUG</div>
+        <div class="panel" data-panel="build">BUILD</div>
+        <div class="panel" data-panel="analyze">ANALYZE</div>
+      </div>
+
+      <!-- Path text -->
+      <div class="path-text">CHOOSE YOUR PATH</div>
+
+      <!-- Row 2 -->
+      <div class="panel-row">
+        <div class="panel" data-panel="programming">PROGRAMMING</div>
+        <div class="panel" data-panel="web">WEB</div>
+      </div>
+
+    </div>
+
+    <!-- ================= DETAIL SECTION ================= -->
+    <div class="detail-box" id="detailBox">
+      <!-- JS injects content here -->
+    </div>
+
+    <button class="back-btn" id="backBtn" style="display:none;">
+      BACK
+    </button>
+
+    <!-- ================= ENTER ================= -->
+    <div class="enter-mindflayer" id="enterMindflayer">
+      ENTER MINDFLAYER CONTROL
+    </div>
+
+  </div>
+
+  <!-- ================= JS ================= -->
+  <script src="js/hawkins.js"></script>
+
+</body>
+</html>

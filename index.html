@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cosmos | Tech Event</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <audio id="bgMusic" autoplay loop>
+    <source src="assets/sounds/intro-sound.mp3" type="audio/mpeg">
+</audio>
+
+    <!-- Fixed Branding -->
+    <div class="branding left">
+        <img src="assets/logos/club-logo1.jpg" alt="Club Logo">
+    </div>
+
+    <div class="branding right">
+        <img src="assets/logos/event-logo.png" alt="Event Logo">
+    </div>
+
+    <!-- Landing / Intro Section -->
+    <section id="landing">
+
+        <!-- Background Video -->
+        <video id="introVideo" autoplay muted loop playsinline>
+            <source src="assets/videos/intro.mp4" type="video/mp4">
+        </video>
+
+
+        <!-- Overlay Content -->
+        <div class="intro-overlay">
+            <h1 class="title">COSMOS</h1>
+            <p class="subtitle">The event is designed as a gamified technical journey inspired by Stranger Things</br> where teams progress through themed challenges that test logic, technical skills, creativity, and teamwork.</br></br>Team Size: 2 - 4 Members </br> Format: Cumulative Scoring across all rounds</br>Eligibilty: 1rst to 4th year students</p>
+            <button id="enterBtn">ENTER</button>
+        </div>
+
+        <!-- Transition Overlay -->
+        <div id="transitionOverlay"></div>
+
+    </section>
+
+    <!-- Main JS -->
+    <script src="js/main.js"></script>
+</body>
+</html>

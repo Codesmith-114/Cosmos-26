@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Register | Event</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Bebas Neue Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
+  <!-- Register CSS ONLY -->
+  <link rel="stylesheet" href="css/register.css">
+</head>
+<body>
+
+  <!-- ================= BACKGROUND VIDEO ================= -->
+  <video id="bgVideo" autoplay loop muted playsinline>
+    <source src="assets/videos/register-bg.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- ================= BRANDING ================= -->
+  <div class="branding left">
+    <img src="assets/logos/club-logo1.jpg" alt="Club Logo">
+  </div>
+
+  <div class="branding right">
+    <img src="assets/logos/event-logo.png" alt="Event Logo">
+  </div>
+
+  <!-- ================= REGISTER CONTENT ================= -->
+  <section id="register">
+
+    <h1 class="reg-title">JOIN THE FIGHT</h1>
+    <p class="reg-subtitle">Scan to register</p>
+
+    <div class="qr-box">
+      <span>QR CODE</span>
+    </div>
+
+  </section>
+
+  <!-- ================= SAFETY AUTOPLAY FIX ================= -->
+  <script>
+    const video = document.getElementById("bgVideo");
+    video.play().catch(() => {
+      document.body.addEventListener("click", () => video.play(), { once: true });
+    });
+  </script>
+
+</body>
+</html>

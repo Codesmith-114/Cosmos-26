@@ -1,0 +1,119 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: black;
+    font-family: 'Inter', sans-serif;
+    overflow: hidden;
+    color: #7df9ff;
+}
+
+/* Branding */
+.branding {
+    position: fixed;
+    top: 20px;
+    z-index: 10;
+}
+.branding.left { left: 20px; }
+.branding.right { right: 20px; }
+.branding img { height: 90px; border-radius: 40px;}
+
+/* Section */
+#prelude {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+/* Video */
+#prelude video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+}
+
+/* Overlay */
+.prelude-content {
+    position: relative;
+    z-index: 5; /* IMPORTANT */
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.prelude-content h1 {
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 6px;
+    font-size: 3.2rem;
+    margin-bottom: 20px;
+}
+
+.prelude-content p {
+    opacity: 0.85;
+    margin-bottom: 50px;
+}
+
+button {
+    padding: 14px 44px;
+    background: transparent;
+    border: 2px solid #7df9ff;
+    color: #7df9ff;
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 3px;
+    cursor: pointer;
+}
+
+/* Glitch */
+#glitch {
+    position: fixed;
+    inset: 0;
+    background: black;
+    opacity: 0;
+    z-index: 20;
+    pointer-events: none; /* IMPORTANT */
+}
+
+#glitch.active {
+    animation: glitchFlash 0.8s forwards;
+}
+
+@keyframes glitchFlash {
+    0% { opacity: 0; }
+    20% { opacity: 1; }
+    40% { opacity: 0.3; }
+    60% { opacity: 1; }
+    100% { opacity: 1; }
+}
+#prelude video {
+    pointer-events: none;
+}
+#preludeEnter {
+    padding: 15px 45px;
+    background: transparent;
+    border: 2px solid #7df9ff;
+    color: #7df9ff;
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 3px;
+    cursor: pointer;
+    transition: 
+        background 0.3s ease,
+        color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+#preludeEnter:hover {
+    background: #7df9ff;
+    color: black;
+    box-shadow: 0 0 25px rgba(125, 249, 255, 0.7);
+}

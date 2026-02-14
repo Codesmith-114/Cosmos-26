@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mind Flayer Control</title>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/flayer.css">
+</head>
+<body>
+<audio id="bgAudio" src="assets/sounds/intro-sound.mp3" preload="auto"></audio>
+
+  <!-- Background Video -->
+  <video id="bgVideo" autoplay loop muted playsinline>
+    <source src="assets/videos/mindflayer-bg.mp4" type="video/mp4">
+  </video>
+
+  <div class="overlay"></div>
+  <!-- ================= LOGOS ================= -->
+  <div class="branding left">
+  <img src="assets/logos/club-logo1.jpg" alt="Club Logo">
+</div>
+
+<div class="branding right">
+  <img src="event-logo.png" alt="Event Logo">
+</div>
+
+  <!-- Main Content -->
+  <main class="container">
+
+    <h1>MIND FLAYER CONTROL</h1>
+    <p class="subtitle">The final domain challenge</p>
+
+    <!-- Panels -->
+    <div class="panels">
+      <button class="panel" data-key="web">Web / App</button>
+      <button class="panel" data-key="ai">AI / ML</button>
+      <button class="panel" data-key="cyber">Cybersecurity</button>
+      <button class="panel" data-key="data">Data</button>
+      <button class="panel" data-key="uiux">UI / UX</button>
+    </div>
+
+    <!-- Description -->
+    <p class="desc">
+      Teams propose and design solutions to real-world problems.<br>
+      Evaluated on clarity, feasibility, and impact.
+    </p>
+
+    <!-- Dynamic Info Box -->
+    <section id="infoBox" class="info hidden">
+      <button id="backBtn">← Back</button>
+      <h2 id="infoTitle"></h2>
+      <p id="infoText"></p>
+    </section>
+
+    <!-- CTA -->
+    <button id="joinFightBtn">JOIN THE FIGHT</button>
+
+  </main>
+
+  <script src="js/flayer.js"></script>
+</body>
+</html>
