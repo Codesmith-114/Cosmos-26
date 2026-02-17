@@ -133,84 +133,83 @@ body { background: #000; color: #ff2b2b; font-family: 'Bebas Neue', sans-serif; 
     margin-bottom: 50px;
 }
 /* =========================================================
-   JOYCE MOBILE FIX — tailored for this stylesheet
+   JOYCE WALL — REAL MOBILE MODE (timeline → story mode)
 ========================================================= */
 @media (max-width:768px){
 
-  /* prevent sideways scroll */
   html,body{ overflow-x:hidden; }
 
-  /* TITLE */
-  .round-title{
-    font-size: clamp(2.2rem,10vw,3rem);
-    letter-spacing:4px;
-    margin-bottom:30px;
-  }
-
-  /* STACK TIMELINE BLOCKS */
-  .block{
-    display:flex;
-    flex-direction:column;
-    min-height:auto;
-    gap:25px;
-    padding:40px 0;
-  }
-
-  /* remove center vertical line alignment problems */
+  /* remove timeline system */
   .line-path,
-  .timeline-progress{
-    left:20px;
-    transform:none;
-    width:4px;
-  }
-
+  .timeline-progress,
   .center-side{
-    order:-1;
-    margin-bottom:10px;
+    display:none !important;
   }
 
-  /* IMAGE FIX */
-  .image-frame{
-    width:100%;
-    max-width:340px;
-    height:200px;
+  /* stack blocks like cards */
+  .block{
+    display:block;
+    min-height:auto;
+    padding:50px 18px;
+    margin-bottom:40px;
   }
 
-  /* TEXT FIX */
-  .text-frame{
-    max-width:95%;
-    padding:0;
+  /* remove left/right alternating layout */
+  .z-left .text-frame,
+  .z-right .text-frame{
     text-align:center !important;
   }
 
+  /* title */
+  .round-title{
+    font-size:2.4rem;
+    letter-spacing:3px;
+    margin-bottom:25px;
+  }
+
+  /* image */
+  .image-side{
+    margin:15px 0 20px 0;
+    justify-content:center;
+  }
+
+  .image-frame{
+    width:100%;
+    max-width:330px;
+    height:190px;
+    margin:auto;
+  }
+
+  /* text */
+  .text-frame{
+    max-width:100%;
+    padding:0 10px;
+  }
+
   .text-frame h2{
-    font-size:1.8rem;
-    letter-spacing:2px;
+    font-size:1.7rem;
+    margin-bottom:10px;
   }
 
   .text-frame p{
     font-size:1rem;
-    line-height:1.4;
+    line-height:1.5;
+    opacity:.9;
   }
 
-  /* BRANDING LOGOS */
-  .branding{
-    position:absolute;
-    top:10px;
+  /* spacing fix */
+  #joyce-wall{
+    padding:60px 0;
   }
 
-  .branding img{
-    height:50px;
-  }
-
-  /* BUTTON */
+  /* button */
   #nextBtn{
     width:90%;
     font-size:1.2rem;
     padding:14px 0;
   }
 
-  /* VIDEO FIX */
+  /* video fix */
   #bg-video{
     top:0;
     left:0;
