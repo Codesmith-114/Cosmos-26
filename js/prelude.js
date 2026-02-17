@@ -5,6 +5,6 @@ enter.addEventListener("click", () => {
     glitch.classList.add("active");
 
     setTimeout(() => {
-        window.location.href = "event.html";
+        window.location.href = "https://cosmos26.vercel.app/";
     }, 800);
 });
