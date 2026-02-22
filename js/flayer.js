@@ -64,19 +64,21 @@ document.addEventListener("DOMContentLoaded", () => {
   if (audio) {
     document.addEventListener("click", () => {
       audio.volume = 0.8;
-      audio.play().catch(() => {});
+      audio.play().catch(() => { });
     }, { once: true });
   }
 
   /* =======================
      JOIN THE FIGHT → REGISTER
   ======================== */
-  const enterBtn = document.getElementById("joinFightBtn");
+  // Add this at the end of js/flayer.js
+  const joinBtn = document.getElementById('joinFightBtn');
 
-  if (enterBtn) {
-    enterBtn.addEventListener("click", () => {
-      window.location.href = "register.html";
-    });
-  }
+  joinBtn.addEventListener('click', () => {
+    // We pass 'mindflayer' as the event parameter
+    // If this is the "Abyss Talk Show", change 'mindflayer' to 'talkshow'
+    window.location.href = 'register.html?event=mindflayer';
+  });
+
 
 });

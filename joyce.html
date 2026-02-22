@@ -1,94 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Round 1 – Joyce Wall</title>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/joyce.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hawkins Treasure Hunt | Timeline</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/hawkins.css">
 </head>
 <body>
-    <div class="video-background">
-    <video autoplay muted loop playsinline id="bg-video">
-        <source src="assets/videos/joyce-bg.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-    <div class="video-overlay"></div>
-</div>
-    <div id="glitch-overlay"></div>
 
-     <div class="branding left">
-        <img src="assets/logos/club-logo1.jpg">
-    </div>
-    <div class="branding right">
-        <img src="assets/logos/event-logo1.jpg">
-    </div>
+  <div id="glitch-overlay"></div>
 
-    <section id="joyce-wall">
-        <h1 class="round-title">ROUND 1 – JOYCE WALL</h1>
-        <p class="prelude-content">Strange messages from the Upside Down are appearing on Joyce’s wall. </br>Teams must decode and interpret them to uncover the truth.</br></br></p>
-        <div class="timeline-container">
-            <div class="line-path"></div>
-            <div class="timeline-progress" id="timelineProgress"></div>
+  <video id="bgVideo" autoplay loop muted playsinline>
+    <source src="assets/videos/hawkins-bg.mp4" type="video/mp4">
+  </video>
 
-            <div class="block z-left">
-                <div class="side-content image-side">
-                    <div class="image-frame"><img src="assets/images/pattern1.jpg"></div>
-                </div>
-                <div class="center-side">
-                    <div class="node"></div>
-                </div>
-                <div class="side-content text-side">
-                    <div class="text-frame">
-                        <h2>Pattern - Based</h2>
-                        <p>Strange patterns appear on the wall. What looks random is deliberate.</p>
-                    </div>
-                </div>
-            </div>
+  <div class="overlay-dark"></div>
 
-            <div class="block z-right">
-                
-                <div class="side-content text-side">
-                    <div class="text-frame">
-                        <h2>Logic - Based</h2>
-                        <p>Logic becomes the only way forward. Each light hides a clue.</p>
-                    </div>
-                </div>
-                <div class="center-side">
-                    <div class="node"></div>
-                </div>
-                <div class="side-content image-side">
-                    <div class="image-frame">
-                         <div class="image-frame"><img src="assets/images/logic.jpg"></div>
-                </div>
-                    </div>
-                </div>
-            </div>
+  <div class="branding left"><img src="assets/logos/club-logo1.jpg" alt="Club"></div>
+  <div class="branding right"><img src="assets/logos/event-logo.png" alt="Event"></div>
 
-            
-            <div class="block z-left">
-                <div class="side-content image-side">
-                    <div class="image-frame"><img src="assets/images/debug.jpg"></div>
-                </div>
-                <div class="center-side">
-                    <div class="node"></div>
-                </div>
-                <div class="side-content text-side">
-                    <div class="text-frame">
-                        <h2>DEBUG</h2>
-                        <p>Find the bug, solve the Riddle</p>
-                    </div>
-                </div>
-            </div>
+  <main class="timeline-wrapper">
+    <h1 class="page-title">HAWKINS MISSION TIMELINE</h1>
+    
+    <div class="timeline-container">
+      <div id="timelineProgress"></div>
+
+      <div class="node" id="node1">
+        <div class="node-content">
+          <h3>PHASE 1: THE SIGNAL</h3>
+          <p>Decipher the encrypted radio frequencies hidden within Hawkins. Only the brightest can hear the call.</p>
         </div>
-        <p class="prelude-content">Objective:</br>
-To warm up participants, build confidence, and assess foundational problem-solving skills.</br></br></p>
-        <p class="prelude-content">Scoring Weight: Moderate (ensures fairness and inclusivity)</br></br></p>
-        <div class="btn-zone">
-            <button id="nextBtn">PROCEED TO HAWKINS LAB</button>
-        </div>
-    </section>
+      </div>
 
-    <script src="js/joyce.js"></script>
+      <div class="node" id="node2">
+        <div class="node-content">
+          <h3>PHASE 2: MAPPING THE VOID</h3>
+          <p>Navigate the physical landmarks of the town. Collect the clues left behind by the Byers family.</p>
+        </div>
+      </div>
+
+      <div class="node" id="node3">
+        <div class="node-content">
+          <h3>PHASE 3: THE GATEWAY</h3>
+          <p>Find the entrance to the Upside Down before time runs out. The clock is ticking in the Creel House.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta-wrapper">
+      <button id="nextBtn">JOIN THE HUNT</button>
+    </div>
+  </main>
+
+  <script src="js/hawkins.js"></script>
 </body>
 </html>
