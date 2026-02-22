@@ -1,25 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <title>Register | Event</title>
+  <title>Register | Join The Fight</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Bebas Neue Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;600&display=swap"
+    rel="stylesheet">
 
-  <!-- Register CSS ONLY -->
   <link rel="stylesheet" href="css/register.css">
 </head>
+
 <body>
 
-  <!-- ================= BACKGROUND VIDEO ================= -->
+  <div class="vignette"></div>
+
   <video id="bgVideo" autoplay loop muted playsinline>
     <source src="assets/videos/register-bg.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
 
-  <!-- ================= BRANDING ================= -->
   <div class="branding left">
     <img src="assets/logos/club-logo1.jpg" alt="Club Logo">
   </div>
@@ -28,25 +29,101 @@
     <img src="assets/logos/event-logo.png" alt="Event Logo">
   </div>
 
-  <!-- ================= REGISTER CONTENT ================= -->
   <section id="register">
 
     <h1 class="reg-title">JOIN THE FIGHT</h1>
-    <p class="reg-subtitle">Scan to register</p>
+    <p class="reg-subtitle">COSMOS MISSION ENROLLMENT</p>
 
-    <div class="qr-box">
-      <span>QR CODE</span>
+    <div class="form-container">
+      <form id="registrationForm">
+
+        <div class="input-group">
+          <select id="eventSelect" required>
+            <option value="" disabled selected>SELECT YOUR MISSION (EVENT)</option>
+            <option value="coding">THE UPSIDE DOWN CODE</option>
+            <option value="treasure">HAWKINS TREASURE HUNT</option>
+            <option value="gaming">ARCADE SHOWDOWN</option>
+            <option value="talkshow">TALK SHOW (SOLO ONLY)</option>
+          </select>
+        </div>
+
+        <div class="input-group" id="teamSizeGroup" style="display: none;">
+          <select id="teamSize">
+            <option value="1">SOLO (1 MEMBER)</option>
+            <option value="2">DUO (2 MEMBERS)</option>
+            <option value="3">TRIO (3 MEMBERS)</option>
+            <option value="4">SQUAD (4 MEMBERS)</option>
+          </select>
+        </div>
+
+        <div id="memberInputs">
+        </div>
+
+        <button type="submit" class="submit-btn">ENLIST NOW</button>
+      </form>
+    </div>
+
+    <div class="back-home">
+      <a href="index.html">← ABORT AND RETURN TO BASE</a>
     </div>
 
   </section>
 
-  <!-- ================= SAFETY AUTOPLAY FIX ================= -->
   <script>
+    const eventSelect = document.getElementById('eventSelect');
+    const teamSizeGroup = document.getElementById('teamSizeGroup');
+    const teamSizeSelect = document.getElementById('teamSize');
+    const memberInputsContainer = document.getElementById('memberInputs');
     const video = document.getElementById("bgVideo");
+
+    // 1. Video Autoplay Fix
     video.play().catch(() => {
       document.body.addEventListener("click", () => video.play(), { once: true });
+    });
+
+    // 2. Function to generate input fields
+    function generateInputs(count) {
+      memberInputsContainer.innerHTML = ''; // Clear current inputs
+      for (let i = 1; i <= count; i++) {
+        const div = document.createElement('div');
+        div.className = 'member-box';
+        div.innerHTML = `
+          <h3>MEMBER ${i} ${i === 1 ? '(LEADER)' : ''}</h3>
+          <input type="text" name="name${i}" placeholder="FULL NAME" required>
+          <input type="text" name="id${i}" placeholder="STUDENT ID / MISSION ID" required>
+        `;
+        memberInputsContainer.appendChild(div);
+      }
+    }
+
+    // 3. Handle Event Change (Talk Show Logic)
+    eventSelect.addEventListener('change', (e) => {
+      if (e.target.value === 'talkshow') {
+        teamSizeGroup.style.display = 'none'; // Hide size selector
+        generateInputs(1); // Force solo
+      } else {
+        teamSizeGroup.style.display = 'block'; // Show size selector
+        generateInputs(teamSizeSelect.value); // Set to current team size selection
+      }
+    });
+
+    // 4. Handle Team Size Change
+    teamSizeSelect.addEventListener('change', (e) => {
+      generateInputs(e.target.value);
+    });
+
+    // 5. Initial State: Load 1 member field
+    generateInputs(1);
+
+    // 6. Form Submission Logic
+    document.getElementById("registrationForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const eventName = eventSelect.options[eventSelect.selectedIndex].text;
+      alert(`ATTENTION: YOU ARE NOW REGISTERED FOR ${eventName}. WATCH THE SKIES.`);
+      window.location.href = "index.html";
     });
   </script>
 
 </body>
+
 </html>

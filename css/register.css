@@ -1,4 +1,4 @@
-/* ================= RESET ================= */
+/* ================= 1. GLOBAL RESET & FONTS ================= */
 * {
   margin: 0;
   padding: 0;
@@ -8,12 +8,35 @@
 html, body {
   width: 100%;
   height: 100%;
-  overflow: hidden;
+  overflow: hidden; /* Prevent background scrolling */
   font-family: 'Bebas Neue', sans-serif;
-  background: transparent;
+  background: #050000;
 }
 
-/* ================= BACKGROUND VIDEO ================= */
+/* ================= 2. CINEMATIC OVERLAYS ================= */
+
+/* CRT Scanlines Effect */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.15) 50%), 
+              linear-gradient(90deg, rgba(255, 0, 0, 0.04), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.04));
+  background-size: 100% 3px, 2px 100%;
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* Vignette (Atmospheric Dark Corners) */
+.vignette {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle, transparent 30%, rgba(0,0,0,0.9) 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* ================= 3. BACKGROUND VIDEO ================= */
 #bgVideo {
   position: fixed;
   inset: 0;
@@ -21,96 +44,173 @@ html, body {
   height: 100vh;
   object-fit: cover;
   z-index: -3;
+  filter: grayscale(20%) contrast(110%) brightness(60%);
 }
 
-/* Dark overlay for readability */
+/* Base Dark Layer */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.65);
+  background: rgba(0, 0, 0, 0.7);
   z-index: -2;
 }
 
-/* ================= BRANDING ================= */
+/* ================= 4. BRANDING LOGOS ================= */
 .branding {
   position: fixed;
-  top: 20px;
-  z-index: 5;
+  top: 25px;
+  z-index: 20;
 }
 
-.branding.left {
-  left: 25px;
-}
-
-.branding.right {
-  right: 25px;
-}
+.branding.left { left: 30px; }
+.branding.right { right: 30px; }
 
 .branding img {
-  height: 90px;
+  height: 80px;
   width: auto;
-  border-radius: 40px;
+  border: 2px solid #ff2b2b;
+  box-shadow: 0 0 15px rgba(255, 43, 43, 0.6);
+  border-radius: 5px;
 }
 
-/* ================= REGISTER SECTION ================= */
+/* ================= 5. MAIN SECTION & TEXT ================= */
 #register {
   position: relative;
-  z-index: 1;
+  z-index: 5;
   height: 100vh;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: center;
-  color: #ff2b2b;
+  padding: 20px;
 }
 
-/* ================= TEXT ================= */
 .reg-title {
-  font-size: 5rem;
-  letter-spacing: 10px;
-  text-shadow: 0 0 10px rgba(255, 43, 43, 0.6);
-  margin-bottom: 15px;
+  font-size: 5.5rem;
+  color: #ff2b2b;
+  letter-spacing: 12px;
+  text-shadow: 3px 3px 0px #4b0000, 0 0 25px rgba(255, 43, 43, 0.8);
+  margin-bottom: 5px;
+  animation: flicker 4s infinite;
 }
 
 .reg-subtitle {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   letter-spacing: 4px;
-  opacity: 0.85;
-  margin-bottom: 50px;
+  color: #ffffff;
+  margin-bottom: 25px;
+  text-transform: uppercase;
+  font-weight: 300;
 }
 
-/* ================= QR BOX ================= */
-.qr-box {
-  width: 260px;
-  height: 260px;
-  border: 3px solid #ff2b2b;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* ================= 6. DYNAMIC FORM CONTAINER ================= */
+.form-container {
+  width: 100%;
+  max-width: 450px;
+  max-height: 60vh; /* Limits height for team registrations */
+  overflow-y: auto; /* Allows scrolling if 4 members are added */
+  background: rgba(10, 0, 0, 0.85);
+  padding: 25px;
+  border: 1px solid rgba(255, 43, 43, 0.5);
+  box-shadow: inset 0 0 20px rgba(255, 43, 43, 0.2), 0 0 30px rgba(0, 0, 0, 1);
+  scrollbar-width: thin;
+  scrollbar-color: #ff2b2b transparent;
+}
+
+/* Custom Scrollbar for Chrome/Safari */
+.form-container::-webkit-scrollbar { width: 4px; }
+.form-container::-webkit-scrollbar-thumb { background: #ff2b2b; }
+
+/* Form Fields */
+select, input {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 15px;
+  background: rgba(20, 0, 0, 0.7);
+  border: 1px solid #333;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif; /* Clean font for inputs */
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+
+select {
+  font-family: 'Bebas Neue', sans-serif;
   font-size: 1.2rem;
-  letter-spacing: 3px;
-  background: rgba(20, 0, 0, 0.6);
-  box-shadow:
-    inset 0 0 20px rgba(255, 43, 43, 0.6),
-    0 0 15px rgba(255, 43, 43, 0.4);
+  letter-spacing: 1px;
+  color: #ff2b2b;
+  border-color: #ff2b2b;
 }
 
-/* ================= RESPONSIVE ================= */
+input:focus {
+  border-color: #ff2b2b;
+  box-shadow: 0 0 10px rgba(255, 43, 43, 0.3);
+}
+
+/* Dynamic Member Sections */
+.member-box {
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px dashed rgba(255, 43, 43, 0.4);
+}
+
+.member-box h3 {
+  color: #ff2b2b;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+}
+
+/* ================= 7. SUBMIT BUTTON ================= */
+.submit-btn {
+  width: 100%;
+  padding: 15px;
+  margin-top: 10px;
+  background: #ff2b2b;
+  color: #fff;
+  border: none;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.8rem;
+  letter-spacing: 3px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(255, 43, 43, 0.4);
+}
+
+.submit-btn:hover {
+  background: #b30000;
+  letter-spacing: 6px;
+  box-shadow: 0 0 25px rgba(255, 43, 43, 0.8);
+}
+
+/* ================= 8. NAVIGATION/QR ================= */
+.back-home a {
+  display: inline-block;
+  margin-top: 25px;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  opacity: 0.5;
+  transition: opacity 0.3s;
+}
+
+.back-home a:hover {
+  opacity: 1;
+  color: #ff2b2b;
+}
+
+/* ================= 9. KEYFRAMES & RESPONSIVE ================= */
+@keyframes flicker {
+  0%, 18%, 22%, 25%, 53%, 57%, 100% { opacity: 1; }
+  20%, 24%, 55% { opacity: 0.3; }
+}
+
 @media (max-width: 768px) {
-  .reg-title {
-    font-size: 3.5rem;
-    letter-spacing: 6px;
-  }
-
-  .branding img {
-    height: 60px;
-  }
-
-  .qr-box {
-    width: 220px;
-    height: 220px;
-  }
+  .reg-title { font-size: 3.5rem; letter-spacing: 6px; }
+  .form-container { width: 90%; }
+  .branding img { height: 60px; }
 }
